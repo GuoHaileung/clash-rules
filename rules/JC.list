@@ -2,10 +2,10 @@
 DOMAIN,in.mesl.cloud
 DOMAIN-SUFFIX,meslcloud.com
 
-DOMAIN-SUFFIX,asndns.com,MESL
-DOMAIN-SUFFIX,github.com,MESL
-DOMAIN-SUFFIX,githubusercontent.com,MESL
-DOMAIN-SUFFIX,gitlab.com,MESL
-DOMAIN-SUFFIX,docker.com,MESL
-DOMAIN-SUFFIX,debian.org,MESL
-DOMAIN-SUFFIX,ubuntu.com,MESL
+DOMAIN-SUFFIX,asndns.com
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,gitlab.com
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,debian.org
+DOMAIN-SUFFIX,ubuntu.com
