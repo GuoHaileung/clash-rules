@@ -4,3 +4,4 @@
 
 * ~~永不更新~~
 * 24年3月20月更新
+更新至https://github.com/GuoHaileung/Rule
