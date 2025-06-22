@@ -183,3 +183,5 @@ IP-CIDR6,2620:120:e000::/40,no-resolve
 USER-AGENT,*youtube*
 USER-AGENT,YouTube*
 USER-AGENT,com.google.ios.youtube*
+##
+DOMAIN,music.youtube.com
