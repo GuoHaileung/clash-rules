@@ -1,0 +1,7 @@
+DOMAIN-SUFFIX,icloud.com.cn,DIRECT
+DOMAIN-SUFFIX,cn.apple.com,DIRECT
+DOMAIN,gs-loc-cn.apple.com,DIRECT
+DOMAIN,api.smoot.apple.cn,DIRECT
+DOMAIN-SUFFIX,cn.ls.apple.com,DIRECT
+DOMAIN-SUFFIX,cn-ssl.ls.apple.com,DIRECT
+DOMAIN-SUFFIX,gspe19-cn-ssl.ls.apple.com,DIRECT
