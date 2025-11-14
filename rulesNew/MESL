@@ -1,8 +1,8 @@
-DOMAIN-SUFFIX,mesl.cloud,MESL
-DOMAIN-SUFFIX,meslcloud.com,MESL
-DOMAIN-SUFFIX,github.com,MESL
-DOMAIN-SUFFIX,githubusercontent.com,MESL
-DOMAIN-SUFFIX,gitlab.com,MESL
-DOMAIN-SUFFIX,docker.com,MESL
-DOMAIN-SUFFIX,debian.org,MESL
-DOMAIN-SUFFIX,ubuntu.com,MESL
+DOMAIN-SUFFIX,mesl.cloud
+DOMAIN-SUFFIX,meslcloud.com
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,gitlab.com
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,debian.org
+DOMAIN-SUFFIX,ubuntu.com
