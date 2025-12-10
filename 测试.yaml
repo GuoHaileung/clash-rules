@@ -175,7 +175,7 @@ dns:
 proxy-providers:
   Link:
     type: http
-    url: "填写链接"
+    url: "填写订阅链接"
     interval: 3600
     path: ./providers/Link.yaml
     health-check:
@@ -188,7 +188,7 @@ proxy-providers:
 #   type: http
 #   url: "填写链接"
 #   interval: 3600
-#   path: ./providers/Link.yaml
+#   path: ./providers/Link2.yaml
 #   health-check:
 #     enable: true
 #     interval: 600
@@ -218,6 +218,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - NODE
+    use:
       - Link
 
   - name: 🖥 Microsoft
@@ -225,18 +226,21 @@ proxy-groups:
     proxies:
       - DIRECT
       - NODE
+    use:
       - Link
 
   - name: 🔍 Google
     type: select
     proxies:
       - NODE
+    use:
       - Link
 
   - name: 🤖 AI
     type: select
     proxies:
       - NODE
+    use:
       - Link
 
   - name: 📽️ Bilibili
@@ -244,12 +248,14 @@ proxy-groups:
     proxies:
       - DIRECT
       - NODE
+    use:
       - Link
 
   - name: 📢 Telegram
     type: select
     proxies:
       - NODE
+    use:
       - Link
 
   - name: 🎮 Steam
@@ -257,6 +263,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - NODE
+    use:
       - Link
 
   # ---- 社交媒体（含 TikTok、Facebook、Instagram、Reddit、Twitter、Whatsapp、Line、Linkedin） ----
@@ -264,6 +271,7 @@ proxy-groups:
     type: select
     proxies:
       - NODE
+    use:
       - Link
 
   # ---- 流媒体合并（含 Netflix、Disney、PrimeVideo、HBO、Abema、Bahamut、DAZN、BBC、Twitch、Spotify） ----
@@ -271,6 +279,7 @@ proxy-groups:
     type: select
     proxies:
       - NODE
+    use:
       - Link
 
   - name: FINAL
@@ -278,6 +287,7 @@ proxy-groups:
     proxies:
       - NODE
       - DIRECT
+    use:
       - Link
 
 # ======================
