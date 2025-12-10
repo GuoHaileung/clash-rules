@@ -1,0 +1,538 @@
+# ======================
+# 基础端口设置
+# ======================
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+
+allow-lan: false
+bind-address: 127.0.0.1
+mode: Rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+# 关 IPv6，更稳
+ipv6: false
+
+# ======================
+# Sniffer
+# ======================
+sniffer:
+  enable: true
+  parse-pure-ip: true  # 处理纯 IP 请求
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+  skip-src-address:
+    - 192.168.1.1/24
+  skip-dst-address:
+    - 91.105.192.0/23
+    - 91.108.4.0/22
+    - 91.108.8.0/21
+    - 91.108.16.0/21
+    - 91.108.56.0/22
+    - 95.161.64.0/20
+    - 149.154.160.0/20
+    - 185.76.151.0/24
+    - 2001:67c:4e8::/48
+    - 2001:b28:f23c::/47
+    - 2001:b28:f23f::/48
+    - 2a0a:f280:203::/48
+# ======================
+# GeoData
+# ======================
+geodata-mode: true
+geodata-loader: memconservative
+geo-auto-update: true
+geo-update-interval: 360
+geox-url:
+  geoip: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
+
+# ======================
+# DNS（fake-ip）
+# ======================
+dns:
+  enable: true
+  listen: "0.0.0.0:1053"
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 114.114.114.114
+    - 8.8.8.8
+
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.google/dns-query
+
+  fake-ip-filter:
+    - "*.lan"
+    - "*.linksys.com"
+    - "*.local"
+    - "*.home.arpa"
+    - swscan.apple.com
+    - mesu.apple.com
+    - swquery.apple.com
+    - swdownload.apple.com
+    - swcdn.apple.com
+    - swdist.apple.com
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - "xbox.*.microsoft.com"
+    - "xbox.*.*.microsoft.com"
+    - "+.xboxlive.com"
+    - "time.*.com"
+    - "time.*.gov"
+    - "time.*.edu.cn"
+    - "time.*.apple.com"
+    - "time1.*.com"
+    - "time2.*.com"
+    - "time3.*.com"
+    - "time4.*.com"
+    - "time5.*.com"
+    - "time6.*.com"
+    - "time7.*.com"
+    - "ntp.*.com"
+    - "ntp1.*.com"
+    - "ntp2.*.com"
+    - "ntp3.*.com"
+    - "ntp4.*.com"
+    - "ntp5.*.com"
+    - "ntp6.*.com"
+    - "ntp7.*.com"
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - "+.pool.ntp.org"
+    - "time1.cloud.tencent.com"
+    - "lens.l.google.com"
+    - "+.music.163.com"
+    - "+.126.net"
+    - "musicapi.taihe.com"
+    - "music.taihe.com"
+    - "songsearch.kugou.com"
+    - "trackercdn.kugou.com"
+    - "*.kuwo.cn"
+    - "api-jooxtt.sanook.com"
+    - "api.joox.com"
+    - "joox.com"
+    - "+.y.qq.com"
+    - "+.music.tc.qq.com"
+    - "aqqmusic.tc.qq.com"
+    - "+.stream.qqmusic.qq.com"
+    - "+.xiami.com"
+    - "+.music.migu.cn"
+    - "+.srv.nintendo.net"
+    - "*.n.n.srv.nintendo.net"
+    - "+.stun.playstation.net"
+    - "+.battlenet.com.cn"
+    - "+.wotgame.cn"
+    - "+.wggames.cn"
+    - "+.wowsgame.cn"
+    - "+.wargaming.net"
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+    - "*.ff14.sdo.com"
+    - "ff.dorado.sdo.com"
+    - "localhost.ptlogin2.qq.com"
+    - "localhost.sec.qq.com"
+    - "proxy.golang.org"
+    - "+.qq.com"
+    - "+.baidu.com"
+    - "+.163.com"
+    - "+.126.net"
+    - "+.taobao.com"
+    - "+.jd.com"
+    - "+.tmall.com"
+    - "*.mcdn.bilivideo.cn"
+    - "+.nvidia.com"
+    - "+.nvidia.cn"
+    - "+.nvgs.nvidia.com"
+    - "+.nvgs.nvidia.cn"
+    - "shark007.net"
+
+# ======================
+# 你的订阅
+# ======================
+proxy-providers:
+  Link:
+    type: http
+    url: "填写链接"
+    interval: 3600
+    path: ./providers/Link.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: https://www.gstatic.com/generate_204
+
+# Link2:
+#   type: http
+#   url: "填写链接"
+#   interval: 3600
+#   path: ./providers/Link.yaml
+#   health-check:
+#     enable: true
+#     interval: 600
+#     url: https://www.gstatic.com/generate_204
+
+# ======================
+# 订阅只写入这里：proxies
+# ======================
+proxies: []
+
+# ======================
+# 你的分组
+# ======================
+proxy-groups:
+# ---- （含 Paypal） ----
+  - name: NODE
+    type: select
+    use:
+      - Link
+#     - Link2
+    proxies:
+      - DIRECT
+
+  - name: 🍎 Apple
+    type: select
+    proxies:
+      - DIRECT
+      - NODE
+
+  - name: 🖥 Microsoft
+    type: select
+    proxies:
+      - DIRECT
+      - NODE
+
+  - name: 🔍 Google
+    type: select
+    proxies:
+      - NODE
+
+  - name: 🤖 AI
+    type: select
+    proxies:
+      - NODE
+
+  # ---- Bilibili 单独 ----
+  - name: 📽️ Bilibili
+    type: select
+    proxies:
+      - DIRECT
+      - NODE
+
+  # ---- Telegram 单独 ----
+  - name: 📢 Telegram
+    type: select
+    proxies:
+      - NODE
+
+  # ---- Steam 单独 ----
+  - name: 🎮 Steam
+    type: select
+    proxies:
+      - DIRECT
+      - NODE
+
+  # ---- 社交媒体（含 TikTok、Facebook、Instagram、Reddit、Twitter、Whatsapp、Line、Linkedin） ----
+  - name: 🌐 SOCIAL
+    type: select
+    proxies:
+      - NODE
+
+  # ---- 流媒体合并（含 Netflix、Disney、PrimeVideo、HBO、Abema、Bahamut、DAZN、BBC、Twitch、Spotify） ----
+  - name: 🎬 STREAM
+    type: select
+    proxies:
+      - NODE
+
+  - name: FINAL
+    type: select
+    proxies:
+      - NODE
+      - DIRECT
+
+# ======================
+# 规则
+# ======================
+rule-providers:
+  DIRECT:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/DIRECT.list"
+    path: ./rules/DIRECT.yaml
+
+  REJECT:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/REJECT.list"
+    path: ./rules/REJECT.yaml
+
+  NODE:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/NODE.list"
+    path: ./rules/NODE.yaml
+
+  Apple:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Apple.list"
+    path: ./rules/Apple.yaml
+
+  Microsoft:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Microsoft.list"
+    path: ./rules/Microsoft.yaml
+
+  Paypal:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Paypal.list"
+    path: ./rules/Paypal.yaml
+
+  Bilibili:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Bilibili.list"
+    path: ./rules/Bilibili.yaml
+
+  TikTok:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/TikTok.list"
+    path: ./rules/TikTok.yaml
+
+  AI:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/AI.list"
+    path: ./rules/AI.yaml
+
+  Steam:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Steam.list"
+    path: ./rules/Steam.yaml
+
+  Google:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Google.list"
+    path: ./rules/Google.yaml
+
+  Spotify:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Spotify.list"
+    path: ./rules/Spotify.yaml
+
+  Facebook:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Facebook.list"
+    path: ./rules/Facebook.yaml
+
+  Discord:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Discord.list"
+    path: ./rules/Discord.yaml
+
+  Telegram:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Telegram.list"
+    path: ./rules/Telegram.yaml
+
+  Whatsapp:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Whatsapp.list"
+    path: ./rules/Whatsapp.yaml
+
+  Line:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Line.list"
+    path: ./rules/Line.yaml
+
+  Linkedin:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Linkedin.list"
+    path: ./rules/Linkedin.yaml
+
+  Reddit:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Reddit.list"
+    path: ./rules/Reddit.yaml
+
+  Instagram:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Instagram.list"
+    path: ./rules/Instagram.yaml
+
+  Twitter:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Twitter.list"
+    path: ./rules/Twitter.yaml
+
+  Netflix:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Netflix.list"
+    path: ./rules/Netflix.yaml
+
+  Disney:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Disney.list"
+    path: ./rules/Disney.yaml
+
+  PrimeVideo:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/PrimeVideo.list"
+    path: ./rules/PrimeVideo.yaml
+
+  Twitch:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Twitch.list"
+    path: ./rules/Twitch.yaml
+
+  HBO:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/HBO.list"
+    path: ./rules/HBO.yaml
+
+  Abema:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Abema.list"
+    path: ./rules/Abema.yaml
+
+  Bahamut:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Bahamut.list"
+    path: ./rules/Bahamut.yaml
+
+  BBC:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/BBC.list"
+    path: ./rules/BBC.yaml
+
+  DAZN:
+    type: http
+    behavior: classical
+    interval: 86400
+    url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/DAZN.list"
+    path: ./rules/DAZN.yaml
+
+rules:
+  # 显式 DIRECT / REJECT / NODE
+  - RULE-SET,DIRECT,DIRECT
+  - RULE-SET,REJECT,REJECT
+  - RULE-SET,NODE,NODE
+
+  # Apple / Microsoft / Paypal
+  - RULE-SET,Apple,🍎 Apple
+  - RULE-SET,Microsoft,🖥 Microsoft
+  - RULE-SET,Paypal,NODE
+
+  # Bilibili / TikTok / Steam / AI / Google
+  - RULE-SET,Bilibili,📽️ Bilibili
+  - RULE-SET,TikTok,🌐 SOCIAL
+  - RULE-SET,AI,🤖 AI
+  - RULE-SET,Steam,🎮 Steam
+  - RULE-SET,Google,🔍 Google
+
+  # 音乐：Spotify → STREAM
+  - RULE-SET,Spotify,🎬 STREAM
+
+  # 社交平台 → SOCIAL（除了 Telegram）
+  - RULE-SET,Facebook,🌐 SOCIAL
+  - RULE-SET,Discord,🌐 SOCIAL
+  - RULE-SET,Whatsapp,🌐 SOCIAL
+  - RULE-SET,Line,🌐 SOCIAL
+  - RULE-SET,Linkedin,🌐 SOCIAL
+  - RULE-SET,Reddit,🌐 SOCIAL
+  - RULE-SET,Instagram,🌐 SOCIAL
+  - RULE-SET,Twitter,🌐 SOCIAL
+
+  # Telegram 单独组
+  - RULE-SET,Telegram,📢 Telegram
+
+  # 各种流媒体 → STREAM
+  - RULE-SET,Netflix,🎬 STREAM
+  - RULE-SET,Disney,🎬 STREAM
+  - RULE-SET,PrimeVideo,🎬 STREAM
+  - RULE-SET,Twitch,🎬 STREAM
+  - RULE-SET,HBO,🎬 STREAM
+  - RULE-SET,Abema,🎬 STREAM
+  - RULE-SET,Bahamut,🎬 STREAM
+  - RULE-SET,BBC,🎬 STREAM
+  - RULE-SET,DAZN,🎬 STREAM
+
+  # 你原来的 builtin 规则：
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-KEYWORD,-cn,DIRECT
+  - GEOIP,CN,DIRECT
+
+  # 最终兜底
+  - MATCH,FINAL
