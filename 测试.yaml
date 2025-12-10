@@ -212,16 +212,31 @@ proxy-groups:
 #     - Link2 
     proxies:
       - DIRECT
-
-  - name: 🍎 Apple
+      
+  - name: 📢 Telegram
+    type: select
+    proxies:
+      - NODE
+    use:
+      - Link
+      
+  - name: 🎮 Steam
     type: select
     proxies:
       - DIRECT
       - NODE
     use:
       - Link
-
+      
   - name: 🖥 Microsoft
+    type: select
+    proxies:
+      - DIRECT
+      - NODE
+    use:
+      - Link
+      
+  - name: 🍎 Apple
     type: select
     proxies:
       - DIRECT
@@ -244,21 +259,6 @@ proxy-groups:
       - Link
 
   - name: 📽️ Bilibili
-    type: select
-    proxies:
-      - DIRECT
-      - NODE
-    use:
-      - Link
-
-  - name: 📢 Telegram
-    type: select
-    proxies:
-      - NODE
-    use:
-      - Link
-
-  - name: 🎮 Steam
     type: select
     proxies:
       - DIRECT
