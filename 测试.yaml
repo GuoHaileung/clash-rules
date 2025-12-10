@@ -47,6 +47,7 @@ sniffer:
     - 2001:b28:f23c::/47
     - 2001:b28:f23f::/48
     - 2a0a:f280:203::/48
+    
 # ======================
 # GeoData
 # ======================
@@ -181,7 +182,8 @@ proxy-providers:
       enable: true
       interval: 600
       url: https://www.gstatic.com/generate_204
-
+      
+#以此类推
 # Link2:
 #   type: http
 #   url: "填写链接"
@@ -206,7 +208,8 @@ proxy-groups:
     type: select
     use:
       - Link
-#     - Link2
+#依次类推
+#     - Link2 
     proxies:
       - DIRECT
 
@@ -215,60 +218,67 @@ proxy-groups:
     proxies:
       - DIRECT
       - NODE
+      - Link
 
   - name: 🖥 Microsoft
     type: select
     proxies:
       - DIRECT
       - NODE
+      - Link
 
   - name: 🔍 Google
     type: select
     proxies:
       - NODE
+      - Link
 
   - name: 🤖 AI
     type: select
     proxies:
       - NODE
+      - Link
 
-  # ---- Bilibili 单独 ----
   - name: 📽️ Bilibili
     type: select
     proxies:
       - DIRECT
       - NODE
+      - Link
 
-  # ---- Telegram 单独 ----
   - name: 📢 Telegram
     type: select
     proxies:
       - NODE
+      - Link
 
-  # ---- Steam 单独 ----
   - name: 🎮 Steam
     type: select
     proxies:
       - DIRECT
       - NODE
+      - Link
 
   # ---- 社交媒体（含 TikTok、Facebook、Instagram、Reddit、Twitter、Whatsapp、Line、Linkedin） ----
   - name: 🌐 SOCIAL
     type: select
     proxies:
       - NODE
+      - Link
 
   # ---- 流媒体合并（含 Netflix、Disney、PrimeVideo、HBO、Abema、Bahamut、DAZN、BBC、Twitch、Spotify） ----
   - name: 🎬 STREAM
     type: select
     proxies:
       - NODE
+      - Link
 
   - name: FINAL
     type: select
     proxies:
       - NODE
       - DIRECT
+      - Link
 
 # ======================
 # 规则
@@ -485,7 +495,7 @@ rule-providers:
     path: ./rules/DAZN.yaml
 
 rules:
-  # 显式 DIRECT / REJECT / NODE
+  # DIRECT / REJECT / NODE
   - RULE-SET,DIRECT,DIRECT
   - RULE-SET,REJECT,REJECT
   - RULE-SET,NODE,NODE
@@ -495,17 +505,18 @@ rules:
   - RULE-SET,Microsoft,🖥 Microsoft
   - RULE-SET,Paypal,NODE
 
-  # Bilibili / TikTok / Steam / AI / Google
+  # Bilibili / TikTok / Steam / AI / Google / Telegram
   - RULE-SET,Bilibili,📽️ Bilibili
-  - RULE-SET,TikTok,🌐 SOCIAL
   - RULE-SET,AI,🤖 AI
   - RULE-SET,Steam,🎮 Steam
   - RULE-SET,Google,🔍 Google
+  - RULE-SET,Telegram,📢 Telegram
 
-  # 音乐：Spotify → STREAM
+  # 其他：Spotify / TikTok
   - RULE-SET,Spotify,🎬 STREAM
+  - RULE-SET,TikTok,🌐 SOCIAL
 
-  # 社交平台 → SOCIAL（除了 Telegram）
+  # 社交平台 → SOCIAL
   - RULE-SET,Facebook,🌐 SOCIAL
   - RULE-SET,Discord,🌐 SOCIAL
   - RULE-SET,Whatsapp,🌐 SOCIAL
@@ -514,10 +525,7 @@ rules:
   - RULE-SET,Reddit,🌐 SOCIAL
   - RULE-SET,Instagram,🌐 SOCIAL
   - RULE-SET,Twitter,🌐 SOCIAL
-
-  # Telegram 单独组
-  - RULE-SET,Telegram,📢 Telegram
-
+  
   # 各种流媒体 → STREAM
   - RULE-SET,Netflix,🎬 STREAM
   - RULE-SET,Disney,🎬 STREAM
@@ -529,7 +537,7 @@ rules:
   - RULE-SET,BBC,🎬 STREAM
   - RULE-SET,DAZN,🎬 STREAM
 
-  # 你原来的 builtin 规则：
+  # builtin 规则：
   - DOMAIN-SUFFIX,cn,DIRECT
   - DOMAIN-KEYWORD,-cn,DIRECT
   - GEOIP,CN,DIRECT
