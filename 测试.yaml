@@ -62,6 +62,19 @@ geox-url:
   asn: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
 
 # ======================
+# 入站
+# ======================
+#tun:
+#  enable: true
+#  # system/gvisor/mixed
+#  stack: system
+#  dns-hijack: ["any:53", "tcp://any:53"]
+#  mtu: 1500
+#  auto-route: true
+#  auto-redirect: true
+#  auto-detect-interface: true
+
+# ======================
 # DNS（fake-ip）
 # ======================
 dns:
