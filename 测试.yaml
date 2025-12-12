@@ -298,6 +298,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/DIRECT.list"
     path: ./rules/DIRECT.yaml
 
@@ -305,6 +306,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/REJECT.list"
     path: ./rules/REJECT.yaml
 
@@ -312,6 +314,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/NODE.list"
     path: ./rules/NODE.yaml
 
@@ -319,6 +322,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Apple.list"
     path: ./rules/Apple.yaml
 
@@ -326,6 +330,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Microsoft.list"
     path: ./rules/Microsoft.yaml
 
@@ -333,6 +338,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Paypal.list"
     path: ./rules/Paypal.yaml
 
@@ -340,6 +346,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Bilibili.list"
     path: ./rules/Bilibili.yaml
 
@@ -347,6 +354,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/TikTok.list"
     path: ./rules/TikTok.yaml
 
@@ -354,6 +362,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/AI.list"
     path: ./rules/AI.yaml
 
@@ -361,6 +370,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Steam.list"
     path: ./rules/Steam.yaml
 
@@ -368,6 +378,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Google.list"
     path: ./rules/Google.yaml
 
@@ -375,6 +386,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Spotify.list"
     path: ./rules/Spotify.yaml
 
@@ -382,6 +394,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Facebook.list"
     path: ./rules/Facebook.yaml
 
@@ -389,6 +402,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Discord.list"
     path: ./rules/Discord.yaml
 
@@ -396,6 +410,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Telegram.list"
     path: ./rules/Telegram.yaml
 
@@ -403,6 +418,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Whatsapp.list"
     path: ./rules/Whatsapp.yaml
 
@@ -410,6 +426,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Line.list"
     path: ./rules/Line.yaml
 
@@ -417,6 +434,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Linkedin.list"
     path: ./rules/Linkedin.yaml
 
@@ -424,6 +442,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Reddit.list"
     path: ./rules/Reddit.yaml
 
@@ -431,6 +450,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Instagram.list"
     path: ./rules/Instagram.yaml
 
@@ -438,6 +458,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Twitter.list"
     path: ./rules/Twitter.yaml
 
@@ -445,6 +466,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Netflix.list"
     path: ./rules/Netflix.yaml
 
@@ -452,6 +474,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Disney.list"
     path: ./rules/Disney.yaml
 
@@ -459,6 +482,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/PrimeVideo.list"
     path: ./rules/PrimeVideo.yaml
 
@@ -466,6 +490,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Twitch.list"
     path: ./rules/Twitch.yaml
 
@@ -473,6 +498,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/HBO.list"
     path: ./rules/HBO.yaml
 
@@ -480,6 +506,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Abema.list"
     path: ./rules/Abema.yaml
 
@@ -487,6 +514,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/Bahamut.list"
     path: ./rules/Bahamut.yaml
 
@@ -494,6 +522,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/BBC.list"
     path: ./rules/BBC.yaml
 
@@ -501,6 +530,7 @@ rule-providers:
     type: http
     behavior: classical
     interval: 86400
+    format: 'text'
     url: "https://raw.githubusercontent.com/GuoHaileung/clash-rules/refs/heads/main/rulesNew/DAZN.list"
     path: ./rules/DAZN.yaml
 
