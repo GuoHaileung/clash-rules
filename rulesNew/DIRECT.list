@@ -1,3 +1,7 @@
+#emby
+DOMAIN-SUFFIX,embyok.neko.dpdns.org
+DOMAIN-SUFFIX,embysntp.neko.dpdns.org
+
 #apple
 DOMAIN-SUFFIX,icloud.com.cn
 DOMAIN-SUFFIX,cn.apple.com
